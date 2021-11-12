@@ -68,6 +68,105 @@ body {
     height: 100vh;
 }
 
+.about-me {
+    flex: 1 1 0;
+    text-align: justify;
+    line-height: 1.2;
+    padding: 0 var(--md-padding);
+    margin-bottom: var(--sm-margin);
+}
+
+.about-me__paragraph-ua,
+.about-me__paragraph-eng,
+.about-me__paragraph-ru,
+.experience__title-ua,
+.experience__title-eng,
+.experience__title-ru,
+.experience__job-position-ua,
+.experience__job-position-eng,
+.experience__job-position-ru,
+.experience__job-date-ua,
+.experience__job-date-eng,
+.experience__job-date-ru,
+.experience__job-date-city-ua,
+.experience__job-date-city-eng,
+.experience__job-date-city-ru,
+.experience__job-description-ua,
+.experience__job-description-eng,
+.experience__job-description-ru,
+.experience__job-company-ua,
+.experience__job-company-eng,
+.experience__job-company-ru {
+    display: none;
+}
+
+.about-me__paragraph-ua.active,
+.about-me__paragraph-eng.active,
+.about-me__paragraph-ru.active,
+.experience__title-ua.active,
+.experience__title-eng.active,
+.experience__title-ru.active,
+.experience__job-position-ua.active,
+.experience__job-position-eng.active,
+.experience__job-position-ru.active,
+.experience__job-date-ua.active,
+.experience__job-date-eng.active,
+.experience__job-date-ru.active,
+.experience__job-date-city-ua.active,
+.experience__job-date-city-eng.active,
+.experience__job-date-city-ru.active,
+.experience__job-description-ua.active,
+.experience__job-description-eng.active,
+.experience__job-description-ru.active,
+.experience__job-company-ua.active,
+.experience__job-company-eng.active,
+.experience__job-company-ru.active {
+    display: block;
+}
+
+.main {
+    padding: 0 var(--xs-padding);
+}
+
+.experience-title,
+.experience__job-position,
+.experience__job-date {
+    margin-bottom: var(--xs-margin);
+}
+
+.experience__job-position {
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 0 var(--sm-padding);
+}
+
+.experience__job-date {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-style: italic;
+    font-weight: 700;
+    color: var(--job-date-text-color);
+    padding: 0 var(--sm-padding);
+}
+
+.experience__job-description,
+.experience__job-company {
+    padding: 0 var(--sm-padding);
+}
+
+.experience__job-description {
+    text-align: justify;
+    line-height: 1.2;
+    margin-bottom: var(--sm-margin);
+}
+
+.experience__job-company {
+    font-weight: 700;
+    margin-bottom: var(--xs-margin);
+}
+
 @media (min-width: 576px) {}
 
 @media (min-width: 768px) {}

@@ -5,6 +5,7 @@
     width: inherit;
     height: 15%;
     border-bottom: 1px solid var(--header-border-bottom-clr);
+    margin-bottom: var(--sm-margin);
 }
 
 .header__container {

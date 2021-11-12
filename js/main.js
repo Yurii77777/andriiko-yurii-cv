@@ -12,6 +12,8 @@ const languageNodeEng = document.querySelectorAll(".header__language-eng");
 const languageNodeRu = document.querySelectorAll(".header__language-ru");
 const cvName = document.querySelectorAll(".header__cv-name");
 const addressNode = document.querySelectorAll(".header__address");
+const aboutMeNode = document.querySelectorAll(".about-me");
+const experienceNode = document.querySelectorAll(".experience-title");
 
 /**
  * Функція для відображення доступного списку мов
@@ -110,35 +112,55 @@ const handleHideLangList = () => {
 const handleContentLang = () => {
     const cvTitle = cvName[0].children;
     const addressList = addressNode[0].children;
+    const aboutMe = aboutMeNode[0].children;
+    const experience = experienceNode[0].children;
     
     if (isUaLang) {
         cvTitle.item(0).classList.add('active');
         addressList.item(0).classList.add('active');
+        aboutMe.item(0).classList.add('active');
+        experience.item(0).classList.add('active');
 
         cvTitle.item(1).classList.remove('active');
         addressList.item(1).classList.remove('active');
+        aboutMe.item(1).classList.remove('active');
+        experience.item(1).classList.remove('active');
         cvTitle.item(2).classList.remove('active');
         addressList.item(2).classList.remove('active');
+        aboutMe.item(2).classList.remove('active');
+        experience.item(2).classList.remove('active');
     }
 
     if (isEngLang) {
         cvTitle.item(1).classList.add('active');
         addressList.item(1).classList.add('active');
+        aboutMe.item(1).classList.add('active');
+        experience.item(1).classList.add('active');
 
         cvTitle.item(0).classList.remove('active');
         addressList.item(0).classList.remove('active');
+        aboutMe.item(0).classList.remove('active');
+        experience.item(0).classList.remove('active');
         cvTitle.item(2).classList.remove('active');
         addressList.item(2).classList.remove('active');
+        aboutMe.item(2).classList.remove('active');
+        experience.item(2).classList.remove('active');
     }
 
     if (isRuLang) {
         cvTitle.item(2).classList.add('active');
         addressList.item(2).classList.add('active');
+        aboutMe.item(2).classList.add('active');
+        experience.item(2).classList.add('active');
 
         cvTitle.item(0).classList.remove('active');
         addressList.item(0).classList.remove('active');
+        aboutMe.item(0).classList.remove('active');
+        experience.item(0).classList.remove('active');
         cvTitle.item(1).classList.remove('active');
         addressList.item(1).classList.remove('active');
+        aboutMe.item(1).classList.remove('active');
+        experience.item(1).classList.remove('active');
     }
 }
 
