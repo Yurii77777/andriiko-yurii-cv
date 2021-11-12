@@ -2,13 +2,16 @@
     /* Паддінги */
     --xs-padding: 5px;
     --sm-padding: 10px;
+    --md-padding: 20px;
 
     /* Марджини */
     --sm-margin: 10px;
 
     /* Шрифти */
     --sm-font-size: 1rem;
-    --md-font-size: 1.5rem;
+    --md-font-size: 1.3rem;
+    --lg-font-size: 1.5rem;
+    --xl-font-size: 2rem;
 
     /* Кольори */
     --header-border-bottom-clr: #F5F5F3;

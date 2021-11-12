@@ -11,6 +11,7 @@ const languageNodeUa = document.querySelectorAll(".header__language-ua");
 const languageNodeEng = document.querySelectorAll(".header__language-eng");
 const languageNodeRu = document.querySelectorAll(".header__language-ru");
 const cvName = document.querySelectorAll(".header__cv-name");
+const addressNode = document.querySelectorAll(".header__address");
 
 /**
  * Функція для відображення доступного списку мов
@@ -108,26 +109,36 @@ const handleHideLangList = () => {
  */
 const handleContentLang = () => {
     const cvTitle = cvName[0].children;
+    const addressList = addressNode[0].children;
     
     if (isUaLang) {
         cvTitle.item(0).classList.add('active');
+        addressList.item(0).classList.add('active');
 
         cvTitle.item(1).classList.remove('active');
+        addressList.item(1).classList.remove('active');
         cvTitle.item(2).classList.remove('active');
+        addressList.item(2).classList.remove('active');
     }
 
     if (isEngLang) {
         cvTitle.item(1).classList.add('active');
+        addressList.item(1).classList.add('active');
 
         cvTitle.item(0).classList.remove('active');
+        addressList.item(0).classList.remove('active');
         cvTitle.item(2).classList.remove('active');
+        addressList.item(2).classList.remove('active');
     }
 
     if (isRuLang) {
         cvTitle.item(2).classList.add('active');
+        addressList.item(2).classList.add('active');
 
         cvTitle.item(0).classList.remove('active');
+        addressList.item(0).classList.remove('active');
         cvTitle.item(1).classList.remove('active');
+        addressList.item(1).classList.remove('active');
     }
 }
 
