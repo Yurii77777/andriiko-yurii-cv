@@ -1,0 +1,12 @@
+:root {
+    /* Паддінги */
+    --xs-padding: 5px;
+    --sm-padding: 10px;
+
+    /* Шрифти */
+    --sm-font-size: 1rem;
+    --md-font-size: 1.5rem;
+
+    /* Кольори */
+    --header-border-bottom-clr: #F5F5F3;
+}
