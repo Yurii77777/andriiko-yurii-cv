@@ -103,6 +103,9 @@ const handleHideLangList = () => {
     }
 }
 
+/**
+ * Функція для відображення контенту на вибраній мові
+ */
 const handleContentLang = () => {
     const cvTitle = cvName[0].children;
     

@@ -3,6 +3,9 @@
     --xs-padding: 5px;
     --sm-padding: 10px;
 
+    /* Марджини */
+    --sm-margin: 10px;
+
     /* Шрифти */
     --sm-font-size: 1rem;
     --md-font-size: 1.5rem;

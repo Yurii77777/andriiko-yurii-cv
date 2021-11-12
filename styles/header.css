@@ -17,9 +17,12 @@
 .header__contacts {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     width: inherit;
+}
+
+.header__container {
+    justify-content: space-between;
 }
 
 .header__cv-photo,
@@ -92,5 +95,23 @@
 }
 
 .header__contacts {
+    justify-content: center;
     height: 30%;
+    padding: 0 var(--xs-padding);
+}
+
+.header__email-link,
+.header__phone-link,
+.header__github-link,
+.header__telegram-link {
+    width: 9%;
+    height: 100%;
+    margin: 0 var(--sm-margin);
+}
+
+.header__email-icon,
+.header__phone-icon,
+.header__github-icon,
+.header__telegram-icon {
+    height: 100%;
 }
