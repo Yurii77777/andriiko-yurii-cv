@@ -54,7 +54,7 @@
 }
 
 .header__language {
-    font-size: var(--md-font-size);
+    font-size: var(--lg-font-size);
     font-weight: 700;
     cursor: pointer;
 }
@@ -64,7 +64,10 @@
 .header__cv-name-ru,
 .header__language-ua,
 .header__language-eng,
-.header__language-ru {
+.header__language-ru,
+.header__address-ua,
+.header__address-eng,
+.header__address-ru {
     display: none;
 }
 
@@ -73,7 +76,10 @@
 .header__cv-name-ru.active,
 .header__language-ua.active,
 .header__language-eng.active,
-.header__language-ru.active {
+.header__language-ru.active,
+.header__address-ua.active,
+.header__address-eng.active,
+.header__address-ru.active {
     display: block;
 }
 
@@ -114,4 +120,32 @@
 .header__github-icon,
 .header__telegram-icon {
     height: 100%;
+    margin: 0 auto;
+}
+
+.header__address {
+    font-size: var(--lg-font-size);
+}
+
+@media (min-width: 576px) {
+    .header__cv-photo,
+    .header__language {
+        width: 12%;
+    }
+
+    .header__cv-name {
+        font-size: var(--xl-font-size);
+    }
+}
+
+@media (min-width: 768px) {
+    .header__container,
+    .header__contacts {
+        padding: 0 var(--md-padding);
+    }
+
+    .header__cv-photo,
+    .header__language {
+        width: 9%;
+    }
 }
