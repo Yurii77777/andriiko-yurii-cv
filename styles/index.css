@@ -73,7 +73,7 @@ body {
     text-align: justify;
     line-height: 1.2;
     padding: 0 var(--md-padding);
-    margin: 30% 0 var(--sm-margin) 0;
+    margin: 130px 0 var(--lg-margin) 0;
 }
 
 .about-me__paragraph-ua,
@@ -114,7 +114,10 @@ body {
 .education__date-city-ru,
 .education__description-ua,
 .education__description-eng,
-.education__description-ru {
+.education__description-ru,
+.skills__title-ua,
+.skills__title-eng,
+.skills__title-ru {
     display: none;
 }
 
@@ -156,7 +159,10 @@ body {
 .education__date-city-ru.active,
 .education__description-ua.active,
 .education__description-eng.active,
-.education__description-ru.active {
+.education__description-ru.active,
+.skills__title-ua.active,
+.skills__title-eng.active,
+.skills__title-ru.active {
     display: block;
 }
 
@@ -164,18 +170,25 @@ body {
     padding: 0 var(--xs-padding);
 }
 
+.about-me,
+.experience__job-description,
+.education__description {
+    font-size: var(--m-font-size);
+}
+
 .experience-title,
 .experience__job-position,
 .experience__job-date,
 .education-title,
 .education__faculty,
-.education__date {
+.education__date,
+.skills-title {
     margin-bottom: var(--xs-margin);
 }
 
 .experience__job-position,
 .education__faculty {
-    font-size: 1.3rem;
+    font-size: var(--md-font-size);
     font-weight: 700;
     padding: 0 var(--sm-padding);
 }
@@ -195,7 +208,8 @@ body {
 .experience__job-description,
 .experience__job-company,
 .education__university,
-.education__description {
+.education__description,
+.skills-decription {
     padding: 0 var(--sm-padding);
 }
 
@@ -212,12 +226,78 @@ body {
     margin-bottom: var(--xs-margin);
 }
 
-@media (min-width: 576px) {}
+.skills-decription {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-items: center;
+    align-items: center;
+    gap: 1em;
+}
 
-@media (min-width: 768px) {}
+.skills-decription__title {
+    display: block;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    text-align: center;
+    width: 125px;
+    padding: 5px;
+    border: 1px solid var(--skills-border-clr);
+    border-radius: 5px;
+    background-color: var(--skills-bg-clr);
+    color: var(--skills-text-clr);
+    letter-spacing: 2px;
+}
 
-@media (min-width: 992px) {}
+@media (min-width: 576px) {
+    .main {
+        padding: 0 var(--lg-margin);
+    }
 
-@media (min-width: 1200px) {}
+    .skills-decription {
+        grid-template-columns: 33% 33% 33%;
+    }
+}
 
-@media (min-width: 1400px) {}
+@media (min-width: 768px) {
+    .wrapper,
+    .header {
+        max-width: 990px;
+        margin: 0 auto;
+    }
+
+    .about-me,
+    .experience__job-description,
+    .education__description {
+        font-size: var(--md-font-size);
+    }
+
+    .experience-title,
+    .education-title,
+    .skills-title {
+        font-size: var(--lg-font-size);
+    }
+
+    .skills-decription {
+        grid-template-columns: 25% 25% 25% 25%;
+    }
+}
+
+@media (min-width: 992px) {
+    .main {
+        display: flex;
+        flex-direction: revert;
+        justify-content: space-between;
+    }
+
+    .main__left {
+        width: 50%;
+    }
+
+    .main__rigth {
+        width: 50%;
+    }
+
+    .skills-decription {
+        grid-template-columns: 33% 33% 33%;
+    }
+}

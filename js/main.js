@@ -25,6 +25,8 @@ const educationUniversityNode = document.querySelectorAll(".education__universit
 const educationDateNode = document.querySelectorAll(".education__date");
 const educationDescriptionNode = document.querySelectorAll(".education__description");
 
+const skillsTitleNode = document.querySelectorAll(".skills-title");
+
 /**
  * Функція для відображення доступного списку мов
  * перевіряє активну мову, і в залежності від умови 'true'
@@ -123,12 +125,15 @@ const handleContentLang = () => {
     const cvTitle = cvName[0].children;
     const addressList = addressNode[0].children;
     const aboutMe = aboutMeNode[0].children;
+
     const experience = experienceNode[0].children;
     const educationTitle = educationTitleNode[0].children;
     const educationFaculty = educationFacultyNode[0].children;
     const educationUniversity = educationUniversityNode[0].children;
     const educationDate = educationDateNode[0].children;
     const educationDescription = educationDescriptionNode[0].children;
+    
+    const skillsTitle = skillsTitleNode[0].children;
     
     if (isUaLang) {
         cvTitle.item(0).classList.add('active');
@@ -192,6 +197,11 @@ const handleContentLang = () => {
         educationDate.item(2).classList.remove('active');
         educationDate.item(5).classList.remove('active');
         educationDescription.item(2).classList.remove('active');
+
+        skillsTitle.item(0).classList.add('active');
+        
+        skillsTitle.item(1).classList.remove('active');
+        skillsTitle.item(2).classList.remove('active');
     }
 
     if (isEngLang) {
@@ -243,7 +253,7 @@ const handleContentLang = () => {
         educationDate.item(1).classList.add('active');
         educationDate.item(4).classList.add('active');
         educationDescription.item(1).classList.add('active');
-
+        
         educationTitle.item(0).classList.remove('active');
         educationFaculty.item(0).classList.remove('active');
         educationUniversity.item(0).classList.remove('active');
@@ -256,6 +266,11 @@ const handleContentLang = () => {
         educationDate.item(2).classList.remove('active');
         educationDate.item(5).classList.remove('active');
         educationDescription.item(2).classList.remove('active');
+        
+        skillsTitle.item(1).classList.add('active');
+        
+        skillsTitle.item(0).classList.remove('active');
+        skillsTitle.item(2).classList.remove('active');
     }
 
     if (isRuLang) {
@@ -320,6 +335,11 @@ const handleContentLang = () => {
         educationDate.item(1).classList.remove('active');
         educationDate.item(4).classList.remove('active');
         educationDescription.item(1).classList.remove('active');
+
+        skillsTitle.item(2).classList.add('active');
+        
+        skillsTitle.item(0).classList.remove('active');
+        skillsTitle.item(1).classList.remove('active');
     }
 }
 
