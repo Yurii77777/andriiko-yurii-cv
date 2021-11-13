@@ -26,6 +26,13 @@ const educationDateNode = document.querySelectorAll(".education__date");
 const educationDescriptionNode = document.querySelectorAll(".education__description");
 
 const skillsTitleNode = document.querySelectorAll(".skills-title");
+const softSkillsTitleNode = document.querySelectorAll(".soft-skills-title");
+const softSkillsDescriptionNode = document.querySelectorAll(".soft-skills-decription");
+const certificatesTitleNode = document.querySelectorAll(".certificates-title");
+
+const languagesTitleNode = document.querySelectorAll(".languages-title");
+const languagesDecriptionNode = document.querySelectorAll(".languages-decription__cintainer");
+// console.log(languagesDecriptionNode[0])
 
 /**
  * Функція для відображення доступного списку мов
@@ -134,6 +141,11 @@ const handleContentLang = () => {
     const educationDescription = educationDescriptionNode[0].children;
     
     const skillsTitle = skillsTitleNode[0].children;
+    const softSkillsTitle = softSkillsTitleNode[0].children;
+    const softSkillsDescription = softSkillsDescriptionNode[0].children;
+    const certificatesTitle = certificatesTitleNode[0].children;
+    
+    const languagesTitle = languagesTitleNode[0].children;
     
     if (isUaLang) {
         cvTitle.item(0).classList.add('active');
@@ -199,9 +211,32 @@ const handleContentLang = () => {
         educationDescription.item(2).classList.remove('active');
 
         skillsTitle.item(0).classList.add('active');
+        softSkillsTitle.item(0).classList.add('active');
+        softSkillsDescription.item(0).classList.add('active');
+        certificatesTitle.item(0).classList.add('active');
         
         skillsTitle.item(1).classList.remove('active');
+        softSkillsTitle.item(1).classList.remove('active');
+        softSkillsDescription.item(1).classList.remove('active');
+        certificatesTitle.item(1).classList.remove('active');
         skillsTitle.item(2).classList.remove('active');
+        softSkillsTitle.item(2).classList.remove('active');
+        softSkillsDescription.item(2).classList.remove('active');
+        certificatesTitle.item(2).classList.remove('active');
+        
+        languagesTitle.item(0).classList.add('active');
+
+        languagesTitle.item(1).classList.remove('active');
+        languagesTitle.item(2).classList.remove('active');
+
+        for (let i = 0; i < languagesDecriptionNode.length; i++) {
+            let languagesDecription = languagesDecriptionNode[i].children;
+
+            languagesDecription.item(0).classList.add('active');
+
+            languagesDecription.item(1).classList.remove('active');
+            languagesDecription.item(2).classList.remove('active');
+        }
     }
 
     if (isEngLang) {
@@ -268,9 +303,32 @@ const handleContentLang = () => {
         educationDescription.item(2).classList.remove('active');
         
         skillsTitle.item(1).classList.add('active');
+        softSkillsTitle.item(1).classList.add('active');
+        softSkillsDescription.item(1).classList.add('active');
+        certificatesTitle.item(1).classList.add('active');
         
         skillsTitle.item(0).classList.remove('active');
+        softSkillsTitle.item(0).classList.remove('active');
+        softSkillsDescription.item(0).classList.remove('active');
+        certificatesTitle.item(0).classList.remove('active');
         skillsTitle.item(2).classList.remove('active');
+        softSkillsTitle.item(2).classList.remove('active');
+        softSkillsDescription.item(2).classList.remove('active');
+        certificatesTitle.item(2).classList.remove('active');
+
+        languagesTitle.item(1).classList.add('active');
+        
+        languagesTitle.item(0).classList.remove('active');
+        languagesTitle.item(2).classList.remove('active');
+
+        for (let i = 0; i < languagesDecriptionNode.length; i++) {
+            let languagesDecription = languagesDecriptionNode[i].children;
+
+            languagesDecription.item(1).classList.add('active');
+
+            languagesDecription.item(0).classList.remove('active');
+            languagesDecription.item(2).classList.remove('active');
+        }
     }
 
     if (isRuLang) {
@@ -337,9 +395,31 @@ const handleContentLang = () => {
         educationDescription.item(1).classList.remove('active');
 
         skillsTitle.item(2).classList.add('active');
+        softSkillsTitle.item(2).classList.add('active');
+        softSkillsDescription.item(2).classList.add('active');
+        certificatesTitle.item(2).classList.add('active');
         
         skillsTitle.item(0).classList.remove('active');
+        softSkillsTitle.item(0).classList.remove('active');
+        softSkillsDescription.item(0).classList.remove('active');
         skillsTitle.item(1).classList.remove('active');
+        softSkillsTitle.item(1).classList.remove('active');
+        softSkillsDescription.item(1).classList.remove('active');
+        certificatesTitle.item(1).classList.remove('active');
+
+        languagesTitle.item(2).classList.add('active');
+        
+        languagesTitle.item(0).classList.remove('active');
+        languagesTitle.item(1).classList.remove('active');
+
+        for (let i = 0; i < languagesDecriptionNode.length; i++) {
+            let languagesDecription = languagesDecriptionNode[i].children;
+
+            languagesDecription.item(2).classList.add('active');
+
+            languagesDecription.item(0).classList.remove('active');
+            languagesDecription.item(1).classList.remove('active');
+        }
     }
 }
 
