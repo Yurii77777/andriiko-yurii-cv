@@ -73,7 +73,7 @@ body {
     text-align: justify;
     line-height: 1.2;
     padding: 0 var(--md-padding);
-    margin-bottom: var(--sm-margin);
+    margin: 30% 0 var(--sm-margin) 0;
 }
 
 .about-me__paragraph-ua,
@@ -96,7 +96,25 @@ body {
 .experience__job-description-ru,
 .experience__job-company-ua,
 .experience__job-company-eng,
-.experience__job-company-ru {
+.experience__job-company-ru,
+.education__title-ua,
+.education__title-eng,
+.education__title-ru,
+.education__faculty-ua,
+.education__faculty-eng,
+.education__faculty-ru,
+.education__university-ua,
+.education__university-eng,
+.education__university-ru,
+.education__date-ua,
+.education__date-eng,
+.education__date-ru,
+.education__date-city-ua,
+.education__date-city-eng,
+.education__date-city-ru,
+.education__description-ua,
+.education__description-eng,
+.education__description-ru {
     display: none;
 }
 
@@ -120,7 +138,25 @@ body {
 .experience__job-description-ru.active,
 .experience__job-company-ua.active,
 .experience__job-company-eng.active,
-.experience__job-company-ru.active {
+.experience__job-company-ru.active,
+.education__title-ua.active,
+.education__title-eng.active,
+.education__title-ru.active,
+.education__faculty-ua.active,
+.education__faculty-eng.active,
+.education__faculty-ru.active,
+.education__university-ua.active,
+.education__university-eng.active,
+.education__university-ru.active,
+.education__date-ua.active,
+.education__date-eng.active,
+.education__date-ru.active,
+.education__date-city-ua.active,
+.education__date-city-eng.active,
+.education__date-city-ru.active,
+.education__description-ua.active,
+.education__description-eng.active,
+.education__description-ru.active {
     display: block;
 }
 
@@ -130,17 +166,22 @@ body {
 
 .experience-title,
 .experience__job-position,
-.experience__job-date {
+.experience__job-date,
+.education-title,
+.education__faculty,
+.education__date {
     margin-bottom: var(--xs-margin);
 }
 
-.experience__job-position {
+.experience__job-position,
+.education__faculty {
     font-size: 1.3rem;
     font-weight: 700;
     padding: 0 var(--sm-padding);
 }
 
-.experience__job-date {
+.experience__job-date,
+.education__date {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -152,17 +193,21 @@ body {
 }
 
 .experience__job-description,
-.experience__job-company {
+.experience__job-company,
+.education__university,
+.education__description {
     padding: 0 var(--sm-padding);
 }
 
-.experience__job-description {
+.experience__job-description,
+.education__description {
     text-align: justify;
     line-height: 1.2;
     margin-bottom: var(--sm-margin);
 }
 
-.experience__job-company {
+.experience__job-company,
+.education__university {
     font-weight: 700;
     margin-bottom: var(--xs-margin);
 }

@@ -4,8 +4,9 @@
     justify-content: space-between;
     width: inherit;
     height: 15%;
+    position: fixed;
+    background-color: #fff;
     border-bottom: 1px solid var(--header-border-bottom-clr);
-    margin-bottom: var(--sm-margin);
 }
 
 .header__container {
@@ -29,7 +30,7 @@
 .header__cv-photo,
 .header__language {
     height: 100%;
-    width: 15%;
+    width: 12%;
     position: relative;
 }
 
@@ -129,11 +130,6 @@
 }
 
 @media (min-width: 576px) {
-    .header__cv-photo,
-    .header__language {
-        width: 12%;
-    }
-
     .header__cv-name {
         font-size: var(--xl-font-size);
     }
