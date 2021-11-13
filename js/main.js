@@ -12,6 +12,18 @@ const languageNodeEng = document.querySelectorAll(".header__language-eng");
 const languageNodeRu = document.querySelectorAll(".header__language-ru");
 const cvName = document.querySelectorAll(".header__cv-name");
 const addressNode = document.querySelectorAll(".header__address");
+const aboutMeNode = document.querySelectorAll(".about-me");
+
+const experienceNode = document.querySelectorAll(".experience-title");
+const jobPositionNode = document.querySelectorAll(".experience__job-position");
+const jobDateNode = document.querySelectorAll(".experience__job-date");
+const jobDescriptionNode = document.querySelectorAll(".experience__job-description");
+
+const educationTitleNode = document.querySelectorAll(".education-title");
+const educationFacultyNode = document.querySelectorAll(".education__faculty");
+const educationUniversityNode = document.querySelectorAll(".education__university");
+const educationDateNode = document.querySelectorAll(".education__date");
+const educationDescriptionNode = document.querySelectorAll(".education__description");
 
 /**
  * Функція для відображення доступного списку мов
@@ -110,35 +122,204 @@ const handleHideLangList = () => {
 const handleContentLang = () => {
     const cvTitle = cvName[0].children;
     const addressList = addressNode[0].children;
+    const aboutMe = aboutMeNode[0].children;
+    const experience = experienceNode[0].children;
+    const educationTitle = educationTitleNode[0].children;
+    const educationFaculty = educationFacultyNode[0].children;
+    const educationUniversity = educationUniversityNode[0].children;
+    const educationDate = educationDateNode[0].children;
+    const educationDescription = educationDescriptionNode[0].children;
     
     if (isUaLang) {
         cvTitle.item(0).classList.add('active');
         addressList.item(0).classList.add('active');
+        aboutMe.item(0).classList.add('active');
+        experience.item(0).classList.add('active');
 
         cvTitle.item(1).classList.remove('active');
         addressList.item(1).classList.remove('active');
+        aboutMe.item(1).classList.remove('active');
+        experience.item(1).classList.remove('active');
         cvTitle.item(2).classList.remove('active');
         addressList.item(2).classList.remove('active');
+        aboutMe.item(2).classList.remove('active');
+        experience.item(2).classList.remove('active');
+
+        for (let i = 0; i < jobPositionNode.length; i++) {
+            let jobPosition = jobPositionNode[i].children;
+
+            jobPosition.item(0).classList.add('active');
+            jobPosition.item(1).classList.remove('active');
+            jobPosition.item(2).classList.remove('active');
+        }
+
+        for (let i = 0; i < jobDateNode.length; i++) {
+            let jobDate = jobDateNode[i].children;
+
+            jobDate.item(0).classList.add('active');
+            jobDate.item(3).classList.add('active');
+
+            jobDate.item(1).classList.remove('active');
+            jobDate.item(2).classList.remove('active');
+            jobDate.item(4).classList.remove('active');
+            jobDate.item(5).classList.remove('active');
+        }
+
+        for (let i = 0; i < jobDescriptionNode.length; i++) {
+            let jobDescription = jobDescriptionNode[i].children;
+
+            jobDescription.item(0).classList.add('active');
+            jobDescription.item(1).classList.remove('active');
+            jobDescription.item(2).classList.remove('active');
+        }
+
+        educationTitle.item(0).classList.add('active');
+        educationFaculty.item(0).classList.add('active');
+        educationUniversity.item(0).classList.add('active');
+        educationDate.item(0).classList.add('active');
+        educationDate.item(3).classList.add('active');
+        educationDescription.item(0).classList.add('active');
+
+        educationTitle.item(1).classList.remove('active');
+        educationFaculty.item(1).classList.remove('active');
+        educationUniversity.item(1).classList.remove('active');
+        educationDate.item(1).classList.remove('active');
+        educationDate.item(4).classList.remove('active');
+        educationDescription.item(1).classList.remove('active');
+        educationTitle.item(2).classList.remove('active');
+        educationFaculty.item(2).classList.remove('active');
+        educationUniversity.item(2).classList.remove('active');
+        educationDate.item(2).classList.remove('active');
+        educationDate.item(5).classList.remove('active');
+        educationDescription.item(2).classList.remove('active');
     }
 
     if (isEngLang) {
         cvTitle.item(1).classList.add('active');
         addressList.item(1).classList.add('active');
+        aboutMe.item(1).classList.add('active');
+        experience.item(1).classList.add('active');
 
         cvTitle.item(0).classList.remove('active');
         addressList.item(0).classList.remove('active');
+        aboutMe.item(0).classList.remove('active');
+        experience.item(0).classList.remove('active');
         cvTitle.item(2).classList.remove('active');
         addressList.item(2).classList.remove('active');
+        aboutMe.item(2).classList.remove('active');
+        experience.item(2).classList.remove('active');
+
+        for (let i = 0; i < jobPositionNode.length; i++) {
+            let jobPosition = jobPositionNode[i].children;
+
+            jobPosition.item(1).classList.add('active');
+            jobPosition.item(0).classList.remove('active');
+            jobPosition.item(2).classList.remove('active');
+        }
+
+        for (let i = 0; i < jobDateNode.length; i++) {
+            let jobDate = jobDateNode[i].children;
+
+            jobDate.item(1).classList.add('active');
+            jobDate.item(4).classList.add('active');
+            
+            jobDate.item(0).classList.remove('active');
+            jobDate.item(2).classList.remove('active');
+            jobDate.item(3).classList.remove('active');
+            jobDate.item(5).classList.remove('active');
+        }
+
+        for (let i = 0; i < jobDescriptionNode.length; i++) {
+            let jobDescription = jobDescriptionNode[i].children;
+
+            jobDescription.item(1).classList.add('active');
+            jobDescription.item(0).classList.remove('active');
+            jobDescription.item(2).classList.remove('active');
+        }
+
+        educationTitle.item(1).classList.add('active');
+        educationFaculty.item(1).classList.add('active');
+        educationUniversity.item(1).classList.add('active');
+        educationDate.item(1).classList.add('active');
+        educationDate.item(4).classList.add('active');
+        educationDescription.item(1).classList.add('active');
+
+        educationTitle.item(0).classList.remove('active');
+        educationFaculty.item(0).classList.remove('active');
+        educationUniversity.item(0).classList.remove('active');
+        educationDate.item(0).classList.remove('active');
+        educationDate.item(3).classList.remove('active');
+        educationDescription.item(0).classList.remove('active');
+        educationTitle.item(2).classList.remove('active');
+        educationFaculty.item(2).classList.remove('active');
+        educationUniversity.item(2).classList.remove('active');
+        educationDate.item(2).classList.remove('active');
+        educationDate.item(5).classList.remove('active');
+        educationDescription.item(2).classList.remove('active');
     }
 
     if (isRuLang) {
         cvTitle.item(2).classList.add('active');
         addressList.item(2).classList.add('active');
+        aboutMe.item(2).classList.add('active');
+        experience.item(2).classList.add('active');
 
         cvTitle.item(0).classList.remove('active');
         addressList.item(0).classList.remove('active');
+        aboutMe.item(0).classList.remove('active');
+        experience.item(0).classList.remove('active');
         cvTitle.item(1).classList.remove('active');
         addressList.item(1).classList.remove('active');
+        aboutMe.item(1).classList.remove('active');
+        experience.item(1).classList.remove('active');
+
+        for (let i = 0; i < jobPositionNode.length; i++) {
+            let jobPosition = jobPositionNode[i].children;
+
+            jobPosition.item(2).classList.add('active');
+            jobPosition.item(0).classList.remove('active');
+            jobPosition.item(1).classList.remove('active');
+        }
+
+        for (let i = 0; i < jobDateNode.length; i++) {
+            let jobDate = jobDateNode[i].children;
+
+            jobDate.item(2).classList.add('active');
+            jobDate.item(5).classList.add('active');
+            
+            jobDate.item(0).classList.remove('active');
+            jobDate.item(1).classList.remove('active');
+            jobDate.item(3).classList.remove('active');
+            jobDate.item(4).classList.remove('active');
+        }
+
+        for (let i = 0; i < jobDescriptionNode.length; i++) {
+            let jobDescription = jobDescriptionNode[i].children;
+
+            jobDescription.item(2).classList.add('active');
+            jobDescription.item(0).classList.remove('active');
+            jobDescription.item(1).classList.remove('active');
+        }
+
+        educationTitle.item(2).classList.add('active');
+        educationFaculty.item(2).classList.add('active');
+        educationUniversity.item(2).classList.add('active');
+        educationDate.item(2).classList.add('active');
+        educationDate.item(5).classList.add('active');
+        educationDescription.item(2).classList.add('active');
+
+        educationTitle.item(0).classList.remove('active');
+        educationFaculty.item(0).classList.remove('active');
+        educationUniversity.item(0).classList.remove('active');
+        educationDate.item(0).classList.remove('active');
+        educationDate.item(3).classList.remove('active');
+        educationDescription.item(0).classList.remove('active');
+        educationTitle.item(1).classList.remove('active');
+        educationFaculty.item(1).classList.remove('active');
+        educationUniversity.item(1).classList.remove('active');
+        educationDate.item(1).classList.remove('active');
+        educationDate.item(4).classList.remove('active');
+        educationDescription.item(1).classList.remove('active');
     }
 }
 
