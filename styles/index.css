@@ -117,7 +117,22 @@ body {
 .education__description-ru,
 .skills__title-ua,
 .skills__title-eng,
-.skills__title-ru {
+.skills__title-ru,
+.soft-skills__title-ua,
+.soft-skills__title-eng,
+.soft-skills__title-ru,
+.soft-skills-decription__paragraph-ua,
+.soft-skills-decription__paragraph-eng,
+.soft-skills-decription__paragraph-ru,
+.certificates__title-ua,
+.certificates__title-eng,
+.certificates__title-ru,
+.languages__title-ua,
+.languages__title-eng,
+.languages__title-ru,
+.languages-decription__paragraph-ua,
+.languages-decription__paragraph-eng,
+.languages-decription__paragraph-ru {
     display: none;
 }
 
@@ -162,17 +177,32 @@ body {
 .education__description-ru.active,
 .skills__title-ua.active,
 .skills__title-eng.active,
-.skills__title-ru.active {
+.skills__title-ru.active,
+.soft-skills__title-ua.active,
+.soft-skills__title-eng.active,
+.soft-skills__title-ru.active,
+.soft-skills-decription__paragraph-ua.active,
+.soft-skills-decription__paragraph-eng.active,
+.soft-skills-decription__paragraph-ru.active,
+.certificates__title-ua.active,
+.certificates__title-eng.active,
+.certificates__title-ru.active,
+.languages__title-ua.active,
+.languages__title-eng.active,
+.languages__title-ru.active {
     display: block;
 }
 
 .main {
-    padding: 0 var(--xs-padding);
+    padding: 0 var(--xs-padding) var(--md-padding) var(--xs-padding);
 }
 
 .about-me,
 .experience__job-description,
-.education__description {
+.education__description,
+.soft-skills-decription,
+.certificates-decription,
+.languages-decription {
     font-size: var(--m-font-size);
 }
 
@@ -182,7 +212,10 @@ body {
 .education-title,
 .education__faculty,
 .education__date,
-.skills-title {
+.skills-title,
+.soft-skills-title,
+.certificates-title,
+.languages-title {
     margin-bottom: var(--xs-margin);
 }
 
@@ -209,12 +242,16 @@ body {
 .experience__job-company,
 .education__university,
 .education__description,
-.skills-decription {
+.skills-decription,
+.soft-skills-decription,
+.languages-decription {
     padding: 0 var(--sm-padding);
 }
 
 .experience__job-description,
-.education__description {
+.education__description,
+.soft-skills-decription,
+.certificates-decription {
     text-align: justify;
     line-height: 1.2;
     margin-bottom: var(--sm-margin);
@@ -248,9 +285,47 @@ body {
     letter-spacing: 2px;
 }
 
+.skills-decription {
+    margin-bottom: var(--sm-margin);
+}
+
+.languages-decription {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.languages-decription__cintainer:nth-child(2) {
+    margin: 0 var(--lg-margin);
+}
+
+.languages-decription__paragraph-ua.active,
+.languages-decription__paragraph-eng.active,
+.languages-decription__paragraph-ru.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.languages-decription__paragraph-ua.active > span:first-child,
+.languages-decription__paragraph-eng.active > span:first-child,
+.languages-decription__paragraph-ru.active > span:first-child {
+    font-weight: 700;
+    margin-bottom: var(--sm-margin);
+}
+
+.languages-decription__paragraph-ua.active > span:last-child,
+.languages-decription__paragraph-eng.active > span:last-child,
+.languages-decription__paragraph-ru.active > span:last-child {
+    font-style: italic;
+    color: var(--lang-level-text-clr);
+}
+
 @media (min-width: 576px) {
     .main {
-        padding: 0 var(--lg-margin);
+        padding: 0 var(--lg-margin) var(--lg-margin) var(--lg-margin);
     }
 
     .skills-decription {
@@ -267,13 +342,19 @@ body {
 
     .about-me,
     .experience__job-description,
-    .education__description {
+    .education__description,
+    .soft-skills-decription,
+    .certificates-decription,
+    .languages-decription {
         font-size: var(--md-font-size);
     }
 
     .experience-title,
     .education-title,
-    .skills-title {
+    .skills-title,
+    .soft-skills-title,
+    .certificates-title,
+    .languages-title {
         font-size: var(--lg-font-size);
     }
 
