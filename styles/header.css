@@ -130,6 +130,16 @@
 }
 
 @media (min-width: 576px) {
+    .header {
+        padding: 0 var(--lg-margin);
+    }
+
+    .header__cv-photo,
+    .header__language {
+        width: 64px;
+        height: 64px;
+    }
+
     .header__cv-name {
         font-size: var(--xl-font-size);
     }
@@ -143,6 +153,15 @@
 
     .header__cv-photo,
     .header__language {
-        width: 9%;
+        width: 64px;
+        height: 64px;
+    }
+}
+
+@media (min-width: 992px) {
+    .header__cv-photo,
+    .header__language {
+        width: 82px;
+        height: 74px;
     }
 }
