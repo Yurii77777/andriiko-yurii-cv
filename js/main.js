@@ -1,734 +1,86 @@
 "use strict";
 
-// Тумблери для перемикання мов
+// // Тумблери для перемикання мов
 let isUaLang = true;
 let isEngLang = false;
 let isRuLang = false;
 
 let isLangListHidden = true;
 
-const languageNodeUa = document.querySelectorAll(".header__language-ua");
-const languageNodeEng = document.querySelectorAll(".header__language-eng");
-const languageNodeRu = document.querySelectorAll(".header__language-ru");
-const cvName = document.querySelectorAll(".header__cv-name");
-const addressNode = document.querySelectorAll(".header__address");
-const aboutMeNode = document.querySelectorAll(".about-me");
-
-const experienceNode = document.querySelectorAll(".experience-title");
-const jobPositionNode = document.querySelectorAll(".experience__job-position");
-const jobDateNode = document.querySelectorAll(".experience__job-date");
-<<<<<<< HEAD
-const jobDescriptionNode = document.querySelectorAll(
-    ".experience__job-description"
-);
-
-const educationTitleNode = document.querySelectorAll(".education-title");
-const educationFacultyNode = document.querySelectorAll(".education__faculty");
-const educationUniversityNode = document.querySelectorAll(
-    ".education__university"
-);
-const educationDateNode = document.querySelectorAll(".education__date");
-const educationDescriptionNode = document.querySelectorAll(
-    ".education__description"
-);
-
-const skillsTitleNode = document.querySelectorAll(".skills-title");
-const softSkillsTitleNode = document.querySelectorAll(".soft-skills-title");
-const softSkillsDescriptionNode = document.querySelectorAll(
-    ".soft-skills-decription"
-);
-const certificatesTitleNode = document.querySelectorAll(".certificates-title");
-
-const languagesTitleNode = document.querySelectorAll(".languages-title");
-const languagesDecriptionNode = document.querySelectorAll(
-    ".languages-decription__cintainer"
-);
-=======
-const jobDescriptionNode = document.querySelectorAll(".experience__job-description");
-
-const educationTitleNode = document.querySelectorAll(".education-title");
-const educationFacultyNode = document.querySelectorAll(".education__faculty");
-const educationUniversityNode = document.querySelectorAll(".education__university");
-const educationDateNode = document.querySelectorAll(".education__date");
-const educationDescriptionNode = document.querySelectorAll(".education__description");
-
-const skillsTitleNode = document.querySelectorAll(".skills-title");
-const softSkillsTitleNode = document.querySelectorAll(".soft-skills-title");
-const softSkillsDescriptionNode = document.querySelectorAll(".soft-skills-decription");
-const certificatesTitleNode = document.querySelectorAll(".certificates-title");
-
-const languagesTitleNode = document.querySelectorAll(".languages-title");
-const languagesDecriptionNode = document.querySelectorAll(".languages-decription__cintainer");
->>>>>>> 064debfe34394d47dfbf7deeb904a63d82c944d4
-// console.log(languagesDecriptionNode[0])
+const $languages = document.querySelectorAll(".header__language");
 
 /**
  * Функція для відображення доступного списку мов
- * перевіряє активну мову, і в залежності від умови 'true'
- * додає клас 'active' іншим (прихованим) елеметам списку
+ * та відображення обраної мови
  */
-const handleShowAllLanguages = () => {
-    if (isUaLang) {
-        languageNodeEng[0].classList.add("active");
-        languageNodeRu[0].classList.add("active");
-    }
+const handleShowAllLanguages = (props) => {
+    const { toggle, lang } = props;
 
-    if (isEngLang) {
-        languageNodeUa[0].classList.add("active");
-        languageNodeRu[0].classList.add("active");
-    }
+    const languages = Array.from($languages[0].children);
 
-    if (isRuLang) {
-        languageNodeUa[0].classList.add("active");
-        languageNodeEng[0].classList.add("active");
-    }
+    if (toggle && !lang) {
+        for (let i = 0; i < languages.length; i++) {
+            !languages[i].classList.contains("active") &&
+                languages[i].classList.add("active");
+        }
 
-    isLangListHidden = false;
-};
+        isLangListHidden = false;
+    } else if (!toggle && lang === "ua") {
+        for (let i = 0; i < languages.length; i++) {
+            !languages[i].dataset.lang === "ua" &&
+                languages[i].classList.remove("active");
+        }
 
-/**
- * Функція для вибору Української мови
- * встановлює тумблери у потрібні значення
- * та видаляє класс 'active' з інших (не вибраних) елементів
- */
-const handleUaLangSelect = () => {
-    isUaLang = true;
-    isEngLang = false;
-    isRuLang = false;
-    isLangListHidden = true;
+        isLangListHidden = true;
+    } else if (!toggle && lang === "eng") {
+        for (let i = 0; i < languages.length; i++) {
+            !languages[i].dataset.lang === "eng" &&
+                languages[i].classList.remove("active");
+        }
 
-    languageNodeEng[0].classList.remove("active");
-    languageNodeRu[0].classList.remove("active");
-};
+        isLangListHidden = true;
+    } else if (!toggle && lang === "ru") {
+        for (let i = 0; i < languages.length; i++) {
+            !languages[i].dataset.lang === "ru" &&
+                languages[i].classList.remove("active");
+        }
 
-/**
- * Функція для вибору Англійської мови
- * встановлює тумблери у потрібні значення
- * та видаляє класс 'active' з інших (не вибраних) елементів
- */
-const handleEngLangSelect = () => {
-    isUaLang = false;
-    isEngLang = true;
-    isRuLang = false;
-    isLangListHidden = true;
-
-    languageNodeUa[0].classList.remove("active");
-    languageNodeRu[0].classList.remove("active");
-};
-
-/**
- * Функція для вибору Російської мови
- * встановлює тумблери у потрібні значення
- * та видаляє класс 'active' з інших (не вибраних) елементів
- */
-const handleRuLangSelect = () => {
-    isUaLang = false;
-    isEngLang = false;
-    isRuLang = true;
-    isLangListHidden = true;
-
-    languageNodeUa[0].classList.remove("active");
-    languageNodeEng[0].classList.remove("active");
-};
-
-/**
- * Функція приховує список з мовами, якщо користувач натиснув де інде,
- * а не на одній із доступних мов.
- * Перевіряє яка наразі вибрана мова, інші приховує (видаляє клас 'active')
- */
-const handleHideLangList = () => {
-    if (isUaLang) {
-        languageNodeEng[0].classList.remove("active");
-        languageNodeRu[0].classList.remove("active");
-    }
-
-    if (isEngLang) {
-        languageNodeUa[0].classList.remove("active");
-        languageNodeRu[0].classList.remove("active");
-    }
-
-    if (isRuLang) {
-        languageNodeUa[0].classList.remove("active");
-        languageNodeEng[0].classList.remove("active");
+        isLangListHidden = true;
     }
 };
 
 /**
- * Функція для відображення контенту на вибраній мові
+ * Фукція проходить по всьому DOM-дереву, шукає data-атрибут "lang"
+ * видаляє та додає клас "active" в залежності від вибраної мови
+ * The function runs throughout the DOM-tree, looking for the data attribute "lang"
+ * removes and adds the "active" class depending on the selected language
+ * Фукция проходит по всему DOM-дереву, ищет data-атрибут "lang"
+ * удаляет и добавляет класс "active" в зависимости от выбранного языка
+ * @param {HTMLNode} parentElement
+ * @param {String} language
  */
-const handleContentLang = () => {
-    const cvTitle = cvName[0].children;
-    const addressList = addressNode[0].children;
-    const aboutMe = aboutMeNode[0].children;
-
-    const experience = experienceNode[0].children;
-    const educationTitle = educationTitleNode[0].children;
-    const educationFaculty = educationFacultyNode[0].children;
-    const educationUniversity = educationUniversityNode[0].children;
-    const educationDate = educationDateNode[0].children;
-    const educationDescription = educationDescriptionNode[0].children;
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 064debfe34394d47dfbf7deeb904a63d82c944d4
-    const skillsTitle = skillsTitleNode[0].children;
-    const softSkillsTitle = softSkillsTitleNode[0].children;
-    const softSkillsDescription = softSkillsDescriptionNode[0].children;
-    const certificatesTitle = certificatesTitleNode[0].children;
-<<<<<<< HEAD
-
-    const languagesTitle = languagesTitleNode[0].children;
-
-    if (isUaLang) {
-        cvTitle.item(0).classList.add("active");
-        addressList.item(0).classList.add("active");
-        aboutMe.item(0).classList.add("active");
-        experience.item(0).classList.add("active");
-
-        cvTitle.item(1).classList.remove("active");
-        addressList.item(1).classList.remove("active");
-        aboutMe.item(1).classList.remove("active");
-        experience.item(1).classList.remove("active");
-        cvTitle.item(2).classList.remove("active");
-        addressList.item(2).classList.remove("active");
-        aboutMe.item(2).classList.remove("active");
-        experience.item(2).classList.remove("active");
-
-        for (let i = 0; i < jobPositionNode.length; i++) {
-            let jobPosition = jobPositionNode[i].children;
-
-            jobPosition.item(0).classList.add("active");
-            jobPosition.item(1).classList.remove("active");
-            jobPosition.item(2).classList.remove("active");
-        }
-
-        for (let i = 0; i < jobDateNode.length; i++) {
-            let jobDate = jobDateNode[i].children;
-
-            jobDate.item(0).classList.add("active");
-            jobDate.item(3).classList.add("active");
-
-            jobDate.item(1).classList.remove("active");
-            jobDate.item(2).classList.remove("active");
-            jobDate.item(4).classList.remove("active");
-            jobDate.item(5).classList.remove("active");
-        }
-
-        for (let i = 0; i < jobDescriptionNode.length; i++) {
-            let jobDescription = jobDescriptionNode[i].children;
-
-            jobDescription.item(0).classList.add("active");
-            jobDescription.item(1).classList.remove("active");
-            jobDescription.item(2).classList.remove("active");
-        }
-
-        educationTitle.item(0).classList.add("active");
-        educationFaculty.item(0).classList.add("active");
-        educationUniversity.item(0).classList.add("active");
-        educationDate.item(0).classList.add("active");
-        educationDate.item(3).classList.add("active");
-        educationDescription.item(0).classList.add("active");
-
-        educationTitle.item(1).classList.remove("active");
-        educationFaculty.item(1).classList.remove("active");
-        educationUniversity.item(1).classList.remove("active");
-        educationDate.item(1).classList.remove("active");
-        educationDate.item(4).classList.remove("active");
-        educationDescription.item(1).classList.remove("active");
-        educationTitle.item(2).classList.remove("active");
-        educationFaculty.item(2).classList.remove("active");
-        educationUniversity.item(2).classList.remove("active");
-        educationDate.item(2).classList.remove("active");
-        educationDate.item(5).classList.remove("active");
-        educationDescription.item(2).classList.remove("active");
-
-        skillsTitle.item(0).classList.add("active");
-        softSkillsTitle.item(0).classList.add("active");
-        softSkillsDescription.item(0).classList.add("active");
-        certificatesTitle.item(0).classList.add("active");
-
-        skillsTitle.item(1).classList.remove("active");
-        softSkillsTitle.item(1).classList.remove("active");
-        softSkillsDescription.item(1).classList.remove("active");
-        certificatesTitle.item(1).classList.remove("active");
-        skillsTitle.item(2).classList.remove("active");
-        softSkillsTitle.item(2).classList.remove("active");
-        softSkillsDescription.item(2).classList.remove("active");
-        certificatesTitle.item(2).classList.remove("active");
-
-        languagesTitle.item(0).classList.add("active");
-
-        languagesTitle.item(1).classList.remove("active");
-        languagesTitle.item(2).classList.remove("active");
-=======
-    
-    const languagesTitle = languagesTitleNode[0].children;
-    
-    if (isUaLang) {
-        cvTitle.item(0).classList.add('active');
-        addressList.item(0).classList.add('active');
-        aboutMe.item(0).classList.add('active');
-        experience.item(0).classList.add('active');
-
-        cvTitle.item(1).classList.remove('active');
-        addressList.item(1).classList.remove('active');
-        aboutMe.item(1).classList.remove('active');
-        experience.item(1).classList.remove('active');
-        cvTitle.item(2).classList.remove('active');
-        addressList.item(2).classList.remove('active');
-        aboutMe.item(2).classList.remove('active');
-        experience.item(2).classList.remove('active');
-
-        for (let i = 0; i < jobPositionNode.length; i++) {
-            let jobPosition = jobPositionNode[i].children;
-
-            jobPosition.item(0).classList.add('active');
-            jobPosition.item(1).classList.remove('active');
-            jobPosition.item(2).classList.remove('active');
-        }
-
-        for (let i = 0; i < jobDateNode.length; i++) {
-            let jobDate = jobDateNode[i].children;
-
-            jobDate.item(0).classList.add('active');
-            jobDate.item(3).classList.add('active');
-
-            jobDate.item(1).classList.remove('active');
-            jobDate.item(2).classList.remove('active');
-            jobDate.item(4).classList.remove('active');
-            jobDate.item(5).classList.remove('active');
-        }
-
-        for (let i = 0; i < jobDescriptionNode.length; i++) {
-            let jobDescription = jobDescriptionNode[i].children;
-
-            jobDescription.item(0).classList.add('active');
-            jobDescription.item(1).classList.remove('active');
-            jobDescription.item(2).classList.remove('active');
-        }
-
-        educationTitle.item(0).classList.add('active');
-        educationFaculty.item(0).classList.add('active');
-        educationUniversity.item(0).classList.add('active');
-        educationDate.item(0).classList.add('active');
-        educationDate.item(3).classList.add('active');
-        educationDescription.item(0).classList.add('active');
-
-        educationTitle.item(1).classList.remove('active');
-        educationFaculty.item(1).classList.remove('active');
-        educationUniversity.item(1).classList.remove('active');
-        educationDate.item(1).classList.remove('active');
-        educationDate.item(4).classList.remove('active');
-        educationDescription.item(1).classList.remove('active');
-        educationTitle.item(2).classList.remove('active');
-        educationFaculty.item(2).classList.remove('active');
-        educationUniversity.item(2).classList.remove('active');
-        educationDate.item(2).classList.remove('active');
-        educationDate.item(5).classList.remove('active');
-        educationDescription.item(2).classList.remove('active');
-
-        skillsTitle.item(0).classList.add('active');
-        softSkillsTitle.item(0).classList.add('active');
-        softSkillsDescription.item(0).classList.add('active');
-        certificatesTitle.item(0).classList.add('active');
-        
-        skillsTitle.item(1).classList.remove('active');
-        softSkillsTitle.item(1).classList.remove('active');
-        softSkillsDescription.item(1).classList.remove('active');
-        certificatesTitle.item(1).classList.remove('active');
-        skillsTitle.item(2).classList.remove('active');
-        softSkillsTitle.item(2).classList.remove('active');
-        softSkillsDescription.item(2).classList.remove('active');
-        certificatesTitle.item(2).classList.remove('active');
-        
-        languagesTitle.item(0).classList.add('active');
-
-        languagesTitle.item(1).classList.remove('active');
-        languagesTitle.item(2).classList.remove('active');
->>>>>>> 064debfe34394d47dfbf7deeb904a63d82c944d4
-
-        for (let i = 0; i < languagesDecriptionNode.length; i++) {
-            let languagesDecription = languagesDecriptionNode[i].children;
-
-<<<<<<< HEAD
-            languagesDecription.item(0).classList.add("active");
-
-            languagesDecription.item(1).classList.remove("active");
-            languagesDecription.item(2).classList.remove("active");
-=======
-            languagesDecription.item(0).classList.add('active');
-
-            languagesDecription.item(1).classList.remove('active');
-            languagesDecription.item(2).classList.remove('active');
->>>>>>> 064debfe34394d47dfbf7deeb904a63d82c944d4
-        }
-    }
-
-    if (isEngLang) {
-<<<<<<< HEAD
-        cvTitle.item(1).classList.add("active");
-        addressList.item(1).classList.add("active");
-        aboutMe.item(1).classList.add("active");
-        experience.item(1).classList.add("active");
-
-        cvTitle.item(0).classList.remove("active");
-        addressList.item(0).classList.remove("active");
-        aboutMe.item(0).classList.remove("active");
-        experience.item(0).classList.remove("active");
-        cvTitle.item(2).classList.remove("active");
-        addressList.item(2).classList.remove("active");
-        aboutMe.item(2).classList.remove("active");
-        experience.item(2).classList.remove("active");
-
-        for (let i = 0; i < jobPositionNode.length; i++) {
-            let jobPosition = jobPositionNode[i].children;
-
-            jobPosition.item(1).classList.add("active");
-            jobPosition.item(0).classList.remove("active");
-            jobPosition.item(2).classList.remove("active");
-        }
-
-        for (let i = 0; i < jobDateNode.length; i++) {
-            let jobDate = jobDateNode[i].children;
-
-            jobDate.item(1).classList.add("active");
-            jobDate.item(4).classList.add("active");
-
-            jobDate.item(0).classList.remove("active");
-            jobDate.item(2).classList.remove("active");
-            jobDate.item(3).classList.remove("active");
-            jobDate.item(5).classList.remove("active");
-        }
-
-        for (let i = 0; i < jobDescriptionNode.length; i++) {
-            let jobDescription = jobDescriptionNode[i].children;
-
-            jobDescription.item(1).classList.add("active");
-            jobDescription.item(0).classList.remove("active");
-            jobDescription.item(2).classList.remove("active");
-        }
-
-        educationTitle.item(1).classList.add("active");
-        educationFaculty.item(1).classList.add("active");
-        educationUniversity.item(1).classList.add("active");
-        educationDate.item(1).classList.add("active");
-        educationDate.item(4).classList.add("active");
-        educationDescription.item(1).classList.add("active");
-
-        educationTitle.item(0).classList.remove("active");
-        educationFaculty.item(0).classList.remove("active");
-        educationUniversity.item(0).classList.remove("active");
-        educationDate.item(0).classList.remove("active");
-        educationDate.item(3).classList.remove("active");
-        educationDescription.item(0).classList.remove("active");
-        educationTitle.item(2).classList.remove("active");
-        educationFaculty.item(2).classList.remove("active");
-        educationUniversity.item(2).classList.remove("active");
-        educationDate.item(2).classList.remove("active");
-        educationDate.item(5).classList.remove("active");
-        educationDescription.item(2).classList.remove("active");
-
-        skillsTitle.item(1).classList.add("active");
-        softSkillsTitle.item(1).classList.add("active");
-        softSkillsDescription.item(1).classList.add("active");
-        certificatesTitle.item(1).classList.add("active");
-
-        skillsTitle.item(0).classList.remove("active");
-        softSkillsTitle.item(0).classList.remove("active");
-        softSkillsDescription.item(0).classList.remove("active");
-        certificatesTitle.item(0).classList.remove("active");
-        skillsTitle.item(2).classList.remove("active");
-        softSkillsTitle.item(2).classList.remove("active");
-        softSkillsDescription.item(2).classList.remove("active");
-        certificatesTitle.item(2).classList.remove("active");
-
-        languagesTitle.item(1).classList.add("active");
-
-        languagesTitle.item(0).classList.remove("active");
-        languagesTitle.item(2).classList.remove("active");
-=======
-        cvTitle.item(1).classList.add('active');
-        addressList.item(1).classList.add('active');
-        aboutMe.item(1).classList.add('active');
-        experience.item(1).classList.add('active');
-
-        cvTitle.item(0).classList.remove('active');
-        addressList.item(0).classList.remove('active');
-        aboutMe.item(0).classList.remove('active');
-        experience.item(0).classList.remove('active');
-        cvTitle.item(2).classList.remove('active');
-        addressList.item(2).classList.remove('active');
-        aboutMe.item(2).classList.remove('active');
-        experience.item(2).classList.remove('active');
-
-        for (let i = 0; i < jobPositionNode.length; i++) {
-            let jobPosition = jobPositionNode[i].children;
-
-            jobPosition.item(1).classList.add('active');
-            jobPosition.item(0).classList.remove('active');
-            jobPosition.item(2).classList.remove('active');
-        }
-
-        for (let i = 0; i < jobDateNode.length; i++) {
-            let jobDate = jobDateNode[i].children;
-
-            jobDate.item(1).classList.add('active');
-            jobDate.item(4).classList.add('active');
-            
-            jobDate.item(0).classList.remove('active');
-            jobDate.item(2).classList.remove('active');
-            jobDate.item(3).classList.remove('active');
-            jobDate.item(5).classList.remove('active');
-        }
-
-        for (let i = 0; i < jobDescriptionNode.length; i++) {
-            let jobDescription = jobDescriptionNode[i].children;
-
-            jobDescription.item(1).classList.add('active');
-            jobDescription.item(0).classList.remove('active');
-            jobDescription.item(2).classList.remove('active');
-        }
-
-        educationTitle.item(1).classList.add('active');
-        educationFaculty.item(1).classList.add('active');
-        educationUniversity.item(1).classList.add('active');
-        educationDate.item(1).classList.add('active');
-        educationDate.item(4).classList.add('active');
-        educationDescription.item(1).classList.add('active');
-        
-        educationTitle.item(0).classList.remove('active');
-        educationFaculty.item(0).classList.remove('active');
-        educationUniversity.item(0).classList.remove('active');
-        educationDate.item(0).classList.remove('active');
-        educationDate.item(3).classList.remove('active');
-        educationDescription.item(0).classList.remove('active');
-        educationTitle.item(2).classList.remove('active');
-        educationFaculty.item(2).classList.remove('active');
-        educationUniversity.item(2).classList.remove('active');
-        educationDate.item(2).classList.remove('active');
-        educationDate.item(5).classList.remove('active');
-        educationDescription.item(2).classList.remove('active');
-        
-        skillsTitle.item(1).classList.add('active');
-        softSkillsTitle.item(1).classList.add('active');
-        softSkillsDescription.item(1).classList.add('active');
-        certificatesTitle.item(1).classList.add('active');
-        
-        skillsTitle.item(0).classList.remove('active');
-        softSkillsTitle.item(0).classList.remove('active');
-        softSkillsDescription.item(0).classList.remove('active');
-        certificatesTitle.item(0).classList.remove('active');
-        skillsTitle.item(2).classList.remove('active');
-        softSkillsTitle.item(2).classList.remove('active');
-        softSkillsDescription.item(2).classList.remove('active');
-        certificatesTitle.item(2).classList.remove('active');
-
-        languagesTitle.item(1).classList.add('active');
-        
-        languagesTitle.item(0).classList.remove('active');
-        languagesTitle.item(2).classList.remove('active');
->>>>>>> 064debfe34394d47dfbf7deeb904a63d82c944d4
-
-        for (let i = 0; i < languagesDecriptionNode.length; i++) {
-            let languagesDecription = languagesDecriptionNode[i].children;
-
-<<<<<<< HEAD
-            languagesDecription.item(1).classList.add("active");
-
-            languagesDecription.item(0).classList.remove("active");
-            languagesDecription.item(2).classList.remove("active");
-=======
-            languagesDecription.item(1).classList.add('active');
-
-            languagesDecription.item(0).classList.remove('active');
-            languagesDecription.item(2).classList.remove('active');
->>>>>>> 064debfe34394d47dfbf7deeb904a63d82c944d4
-        }
-    }
-
-    if (isRuLang) {
-<<<<<<< HEAD
-        cvTitle.item(2).classList.add("active");
-        addressList.item(2).classList.add("active");
-        aboutMe.item(2).classList.add("active");
-        experience.item(2).classList.add("active");
-
-        cvTitle.item(0).classList.remove("active");
-        addressList.item(0).classList.remove("active");
-        aboutMe.item(0).classList.remove("active");
-        experience.item(0).classList.remove("active");
-        cvTitle.item(1).classList.remove("active");
-        addressList.item(1).classList.remove("active");
-        aboutMe.item(1).classList.remove("active");
-        experience.item(1).classList.remove("active");
-
-        for (let i = 0; i < jobPositionNode.length; i++) {
-            let jobPosition = jobPositionNode[i].children;
-
-            jobPosition.item(2).classList.add("active");
-            jobPosition.item(0).classList.remove("active");
-            jobPosition.item(1).classList.remove("active");
-        }
-
-        for (let i = 0; i < jobDateNode.length; i++) {
-            let jobDate = jobDateNode[i].children;
-
-            jobDate.item(2).classList.add("active");
-            jobDate.item(5).classList.add("active");
-
-            jobDate.item(0).classList.remove("active");
-            jobDate.item(1).classList.remove("active");
-            jobDate.item(3).classList.remove("active");
-            jobDate.item(4).classList.remove("active");
-=======
-        cvTitle.item(2).classList.add('active');
-        addressList.item(2).classList.add('active');
-        aboutMe.item(2).classList.add('active');
-        experience.item(2).classList.add('active');
-
-        cvTitle.item(0).classList.remove('active');
-        addressList.item(0).classList.remove('active');
-        aboutMe.item(0).classList.remove('active');
-        experience.item(0).classList.remove('active');
-        cvTitle.item(1).classList.remove('active');
-        addressList.item(1).classList.remove('active');
-        aboutMe.item(1).classList.remove('active');
-        experience.item(1).classList.remove('active');
-
-        for (let i = 0; i < jobPositionNode.length; i++) {
-            let jobPosition = jobPositionNode[i].children;
-
-            jobPosition.item(2).classList.add('active');
-            jobPosition.item(0).classList.remove('active');
-            jobPosition.item(1).classList.remove('active');
-        }
-
-        for (let i = 0; i < jobDateNode.length; i++) {
-            let jobDate = jobDateNode[i].children;
-
-            jobDate.item(2).classList.add('active');
-            jobDate.item(5).classList.add('active');
-            
-            jobDate.item(0).classList.remove('active');
-            jobDate.item(1).classList.remove('active');
-            jobDate.item(3).classList.remove('active');
-            jobDate.item(4).classList.remove('active');
->>>>>>> 064debfe34394d47dfbf7deeb904a63d82c944d4
-        }
-
-        for (let i = 0; i < jobDescriptionNode.length; i++) {
-            let jobDescription = jobDescriptionNode[i].children;
-
-<<<<<<< HEAD
-            jobDescription.item(2).classList.add("active");
-            jobDescription.item(0).classList.remove("active");
-            jobDescription.item(1).classList.remove("active");
-        }
-
-        educationTitle.item(2).classList.add("active");
-        educationFaculty.item(2).classList.add("active");
-        educationUniversity.item(2).classList.add("active");
-        educationDate.item(2).classList.add("active");
-        educationDate.item(5).classList.add("active");
-        educationDescription.item(2).classList.add("active");
-
-        educationTitle.item(0).classList.remove("active");
-        educationFaculty.item(0).classList.remove("active");
-        educationUniversity.item(0).classList.remove("active");
-        educationDate.item(0).classList.remove("active");
-        educationDate.item(3).classList.remove("active");
-        educationDescription.item(0).classList.remove("active");
-        educationTitle.item(1).classList.remove("active");
-        educationFaculty.item(1).classList.remove("active");
-        educationUniversity.item(1).classList.remove("active");
-        educationDate.item(1).classList.remove("active");
-        educationDate.item(4).classList.remove("active");
-        educationDescription.item(1).classList.remove("active");
-
-        skillsTitle.item(2).classList.add("active");
-        softSkillsTitle.item(2).classList.add("active");
-        softSkillsDescription.item(2).classList.add("active");
-        certificatesTitle.item(2).classList.add("active");
-
-        skillsTitle.item(0).classList.remove("active");
-        softSkillsTitle.item(0).classList.remove("active");
-        softSkillsDescription.item(0).classList.remove("active");
-        skillsTitle.item(1).classList.remove("active");
-        softSkillsTitle.item(1).classList.remove("active");
-        softSkillsDescription.item(1).classList.remove("active");
-        certificatesTitle.item(1).classList.remove("active");
-
-        languagesTitle.item(2).classList.add("active");
-
-        languagesTitle.item(0).classList.remove("active");
-        languagesTitle.item(1).classList.remove("active");
-=======
-            jobDescription.item(2).classList.add('active');
-            jobDescription.item(0).classList.remove('active');
-            jobDescription.item(1).classList.remove('active');
-        }
-
-        educationTitle.item(2).classList.add('active');
-        educationFaculty.item(2).classList.add('active');
-        educationUniversity.item(2).classList.add('active');
-        educationDate.item(2).classList.add('active');
-        educationDate.item(5).classList.add('active');
-        educationDescription.item(2).classList.add('active');
-
-        educationTitle.item(0).classList.remove('active');
-        educationFaculty.item(0).classList.remove('active');
-        educationUniversity.item(0).classList.remove('active');
-        educationDate.item(0).classList.remove('active');
-        educationDate.item(3).classList.remove('active');
-        educationDescription.item(0).classList.remove('active');
-        educationTitle.item(1).classList.remove('active');
-        educationFaculty.item(1).classList.remove('active');
-        educationUniversity.item(1).classList.remove('active');
-        educationDate.item(1).classList.remove('active');
-        educationDate.item(4).classList.remove('active');
-        educationDescription.item(1).classList.remove('active');
-
-        skillsTitle.item(2).classList.add('active');
-        softSkillsTitle.item(2).classList.add('active');
-        softSkillsDescription.item(2).classList.add('active');
-        certificatesTitle.item(2).classList.add('active');
-        
-        skillsTitle.item(0).classList.remove('active');
-        softSkillsTitle.item(0).classList.remove('active');
-        softSkillsDescription.item(0).classList.remove('active');
-        skillsTitle.item(1).classList.remove('active');
-        softSkillsTitle.item(1).classList.remove('active');
-        softSkillsDescription.item(1).classList.remove('active');
-        certificatesTitle.item(1).classList.remove('active');
-
-        languagesTitle.item(2).classList.add('active');
-        
-        languagesTitle.item(0).classList.remove('active');
-        languagesTitle.item(1).classList.remove('active');
->>>>>>> 064debfe34394d47dfbf7deeb904a63d82c944d4
-
-        for (let i = 0; i < languagesDecriptionNode.length; i++) {
-            let languagesDecription = languagesDecriptionNode[i].children;
-
-<<<<<<< HEAD
-            languagesDecription.item(2).classList.add("active");
-
-            languagesDecription.item(0).classList.remove("active");
-            languagesDecription.item(1).classList.remove("active");
-=======
-            languagesDecription.item(2).classList.add('active');
-
-            languagesDecription.item(0).classList.remove('active');
-            languagesDecription.item(1).classList.remove('active');
->>>>>>> 064debfe34394d47dfbf7deeb904a63d82c944d4
+const setLanguage = (parentElement, language) => {
+    const nodeIterator = parentElement.createNodeIterator(
+        document,
+        NodeFilter.SHOW_ELEMENT,
+        null
+    );
+
+    let child = null;
+
+    while ((child = nodeIterator.nextNode()) !== null) {
+        if (child.dataset.lang) {
+            child.classList.contains("active") &&
+                child.classList.remove("active");
+            child.dataset.lang === language && child.classList.add("active");
         }
     }
 };
 
 document.addEventListener("click", (e) => {
-    let userClick = null;
+    e.stopPropagation();
 
+    let userClick = null;
     userClick = e.target;
 
     if (
@@ -739,26 +91,24 @@ document.addEventListener("click", (e) => {
         (userClick.className === "header__language-ru active" &&
             isLangListHidden)
     ) {
-        handleShowAllLanguages();
+        handleShowAllLanguages({ toggle: true });
     } else if (
         userClick.className === "header__language-ua active" &&
         !isLangListHidden
     ) {
-        handleUaLangSelect();
-        handleContentLang();
+        setLanguage(document, "ua");
+        handleShowAllLanguages({ lang: "ua" });
     } else if (
         userClick.className === "header__language-eng active" &&
         !isLangListHidden
     ) {
-        handleEngLangSelect();
-        handleContentLang();
+        setLanguage(document, "eng");
+        handleShowAllLanguages({ lang: "eng" });
     } else if (
         userClick.className === "header__language-ru active" &&
         !isLangListHidden
     ) {
-        handleRuLangSelect();
-        handleContentLang();
-    } else {
-        handleHideLangList();
+        setLanguage(document, "ru");
+        handleShowAllLanguages({ lang: "ru" });
     }
 });
